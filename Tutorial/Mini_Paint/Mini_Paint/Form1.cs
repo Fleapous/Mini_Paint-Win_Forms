@@ -4,6 +4,10 @@ namespace Mini_Paint
     {
         private Bitmap drawArea;
         private Pen pen;
+        private int X = -1;
+        private int Y = -1;
+        bool DrawClick = false;
+        bool DrawButton = false;
         public Form1()
         {
             InitializeComponent();
@@ -33,10 +37,7 @@ namespace Mini_Paint
         {
             if (e.Button == MouseButtons.Left)
             {
-               using(Graphics g = Graphics.FromImage(drawArea))
-                {
-                    g.FillEllipse(Brushes.Black, e.X - 10, e.Y - 10, 2 * 10, 10 * 2);
-                }
+
             }
         }
 
@@ -44,7 +45,31 @@ namespace Mini_Paint
         {
             using (Graphics g = Graphics.FromImage(drawArea))
             {
-                g.DrawLine(pen, e.X, e.Y, e.X + 2, e.Y + 2);
+                g.DrawLine(pen, X, Y, e.X, e.Y);
+                X = e.X; Y = e.Y;
+            }
+            pictureBox1.Refresh();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            //DrawButton = !DrawButton;
+            //toolStrip1.
+        }
+
+        private void tableLayoutPanel1_Layout(object sender, LayoutEventArgs e)
+        {
+            int newWith = tableLayoutPanel1.GetControlFromPosition(0, 0).Size.Width;
+            int newHeight = tableLayoutPanel1.GetControlFromPosition(0,0).Size.Height;
+            pictureBox1.Size = new Size(newWith, newHeight);
+
+            drawArea?.Dispose();
+
+            drawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            pictureBox1.Image = drawArea;
+            using (Graphics g = Graphics.FromImage(drawArea))
+            {
+                g.Clear(Color.White);
             }
         }
     }

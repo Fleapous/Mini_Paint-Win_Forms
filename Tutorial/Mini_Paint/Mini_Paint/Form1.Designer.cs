@@ -42,17 +42,19 @@
             // 
             // toolStrip1
             // 
+            toolStrip1.ImageScalingSize = new Size(32, 32);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(624, 25);
+            toolStrip1.Padding = new Padding(0, 0, 4, 0);
+            toolStrip1.Size = new Size(1159, 42);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(34, 22);
+            toolStripLabel1.Size = new Size(69, 36);
             toolStripLabel1.Text = "Tools";
             // 
             // toolStripButton1
@@ -61,8 +63,9 @@
             toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(23, 22);
+            toolStripButton1.Size = new Size(46, 36);
             toolStripButton1.Text = "toolStripButton1";
+            toolStripButton1.Click += toolStripButton1_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -72,20 +75,23 @@
             tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(groupBox1, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 25);
+            tableLayoutPanel1.Location = new Point(0, 42);
+            tableLayoutPanel1.Margin = new Padding(6);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(624, 416);
+            tableLayoutPanel1.Size = new Size(1159, 899);
             tableLayoutPanel1.TabIndex = 1;
+            tableLayoutPanel1.Layout += tableLayoutPanel1_Layout;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.AppWorkspace;
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Location = new Point(6, 6);
+            pictureBox1.Margin = new Padding(6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(555, 410);
+            pictureBox1.Size = new Size(1031, 887);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.MouseClick += pictureBox1_MouseClick;
@@ -96,20 +102,23 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Location = new Point(564, 3);
+            groupBox1.Location = new Point(1049, 6);
+            groupBox1.Margin = new Padding(6);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(57, 410);
+            groupBox1.Padding = new Padding(6);
+            groupBox1.Size = new Size(104, 887);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(624, 441);
+            ClientSize = new Size(1159, 941);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(toolStrip1);
+            Margin = new Padding(6);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
