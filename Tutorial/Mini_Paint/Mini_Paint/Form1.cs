@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Mini_Paint
 {
     public partial class Form1 : Form
@@ -60,7 +62,7 @@ namespace Mini_Paint
         private void tableLayoutPanel1_Layout(object sender, LayoutEventArgs e)
         {
             int newWith = tableLayoutPanel1.GetControlFromPosition(0, 0).Size.Width;
-            int newHeight = tableLayoutPanel1.GetControlFromPosition(0,0).Size.Height;
+            int newHeight = tableLayoutPanel1.GetControlFromPosition(0, 0).Size.Height;
             pictureBox1.Size = new Size(newWith, newHeight);
 
             drawArea?.Dispose();
@@ -72,5 +74,47 @@ namespace Mini_Paint
                 g.Clear(Color.White);
             }
         }
+
+        //    private void ColorFill()
+        //    {
+        //        foreach (KnownColor color in Enum.GetValues(typeof(KnownColor)))
+        //        {
+        //            SquareControl_ tmp = new SquareControl_();
+        //            tmp.Color = color;
+
+        //            //PictureBox button = new PictureBox();
+        //            //button.BackColor = Color.FromKnownColor(color);
+        //            //button.Size = new Size(25, 25);
+        //            //button.Name = color.ToString();
+        //            //button.Click += new EventHandler(this.btnCLick_Event);
+        //            //flowLayoutPanel.Controls.Add(button);
+        //        }
+        //    }
     }
+
+    //public partial class SquareControl_ : UserControl
+    //{
+    //    private KnownColor _color;
+
+    //    public KnownColor Color
+    //    {
+    //        get { return _color; }
+    //        set
+    //        {
+    //            _color = value;
+    //            Invalidate(); // Redraw the control when the color changes
+    //        }
+    //    }
+
+    //    protected override void OnPaint(PaintEventArgs e)
+    //    {
+    //        base.OnPaint(e);
+
+    //        var brush = new SolidBrush(System.Drawing.Color.FromKnownColor(_color));
+
+    //        // Draw a rectangle with the specified color to create the appearance of a square
+    //        e.Graphics.FillRectangle(brush, 0, 0, Width, Height);
+    //    }
+    //}
+
 }
